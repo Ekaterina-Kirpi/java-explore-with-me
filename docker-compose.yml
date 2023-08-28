@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   stats-server:
-    build: ./stats/stats-server
+    build: stats/stats-server
     image: stats-server-image
     container_name: stats-server-container
     # command: ["wait-for-it.sh", "localhost:9090", "-t", "120", "--", "java", "-jar", "/stats-server.jar"]
