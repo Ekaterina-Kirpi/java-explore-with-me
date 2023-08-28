@@ -4,7 +4,6 @@ services:
     build: stats/stats-server
     image: stats-server-image
     container_name: stats-server-container
-
     ports:
       - "9090:9090"
     depends_on:
@@ -23,7 +22,7 @@ services:
       - POSTGRES_DB=ewm-stats
       - POSTGRES_USER=stats
       - POSTGRES_PASSWORD=stats
-      
+
   ewm-service:
     image: amazoncorretto:11-alpine-jdk
     container_name: ewm-service
