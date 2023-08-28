@@ -4,7 +4,7 @@ services:
     build: ./stats/stats-server
     image: stats-server-image
     container_name: stats-server-container
-    command: ["wait-for-it.sh", "localhost:9090", "-t", "120", "--", "java", "-jar", "/stats-server.jar"]
+   # command: ["wait-for-it.sh", "localhost:9090", "-t", "120", "--", "java", "-jar", "/stats-server.jar"]
     ports:
       - "9090:9090"
     depends_on:
