@@ -9,7 +9,7 @@ services:
     depends_on:
       - stats-db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://stats-db:5432/ewm-stats
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://stats-db:5432/ewm_stats
       - SPRING_DATASOURCE_USERNAME=stats
       - SPRING_DATASOURCE_PASSWORD=stats
 
@@ -19,7 +19,7 @@ services:
     ports:
       - "6541:5432"
     environment:
-      - POSTGRES_DB=ewm-stats
+      - POSTGRES_DB=ewm_stats
       - POSTGRES_USER=stats
       - POSTGRES_PASSWORD=stats
 
