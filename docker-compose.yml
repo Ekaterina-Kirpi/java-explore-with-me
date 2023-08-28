@@ -4,54 +4,51 @@ services:
     build: ./stats/stats-server
     image: stats-server-image
     container_name: stats-server-container
-   # command: ["wait-for-it.sh", "localhost:9090", "-t", "120", "--", "java", "-jar", "/stats-server.jar"]
+    # command: ["wait-for-it.sh", "localhost:9090", "-t", "120", "--", "java", "-jar", "/stats-server.jar"]
     ports:
       - "9090:9090"
     depends_on:
       - stats-db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://stats-db:5432/stats-db
-      - SPRING_DATASOURCE_USERNAME=stats
-      - SPRING_DATASOURCE_PASSWORD=stats
-
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://stats-db:5432/ewm-stats
 
   stats-db:
     image: postgres:14-alpine
-    container_name: stats-db
+    container_name: postgres-stats-db-container
     ports:
       - "6541:5432"
     environment:
-      - POSTGRES_DB=stats-db
+      - POSTGRES_DB=ewm-stats
       - POSTGRES_USER=stats
       - POSTGRES_PASSWORD=stats
   ewm-service:
     image: amazoncorretto:11-alpine-jdk
     container_name: ewm-service
     ports:
-    - "8080:8080"
+      - "8080:8080"
 
 
 
 
-      #ewm-service:
-  #build: ./main
-   #image: main-image
-   # container_name: main-container
-    #ports:
-     # - "8080:8080"
-    #depends_on:
-     # - ewm-db
-      #- stats-server
-    #environment:
-     # - CLIENT_URL=http://stats-server:9090
-      #- SPRING_DATASOURCE_URL=jdbc:postgresql://ewm-db:5432/ewm-main
+        #ewm-service:
+        #build: ./main
+        #image: main-image
+        # container_name: main-container
+        #ports:
+        # - "8080:8080"
+        #depends_on:
+        # - ewm-db
+        #- stats-server
+        #environment:
+        # - CLIENT_URL=http://stats-server:9090
+        #- SPRING_DATASOURCE_URL=jdbc:postgresql://ewm-db:5432/ewm-main
 
-  #ewm-db:
-   # image: postgres:14-alpine
-    #container_name: main-db-container
-    #ports:
-     # - "6542:5432"
-    #environment:
-     # - POSTGRES_DB=ewm-main
-      #- POSTGRES_USER=main
+        #ewm-db:
+        # image: postgres:14-alpine
+        #container_name: main-db-container
+        #ports:
+        # - "6542:5432"
+        #environment:
+        # - POSTGRES_DB=ewm-main
+        #- POSTGRES_USER=main
       #- POSTGRES_PASSWORD=main
