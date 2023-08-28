@@ -1,8 +1,7 @@
 CREATE TABLE IF NOT EXISTS hits
-(
     id         BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    app        VARCHAR(255) NOT NULL,
-    uri        VARCHAR(255) NOT NULL,
-    ip         VARCHAR(15) NOT NULL,
-    timestamp  TIMESTAMP NOT NULL
+    app        VARCHAR(255),
+    uri        VARCHAR(255),
+    ip         VARCHAR(15),
+    timestamp  TIMESTAMP
 );
