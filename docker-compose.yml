@@ -18,6 +18,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+      
   stats-db:
     image: postgres:14-alpine
     container_name: postgres-stats-db-container
