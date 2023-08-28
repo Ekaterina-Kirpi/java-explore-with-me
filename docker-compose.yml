@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   stats-server:
-    build: ./stats/stats-server
+    build: stats/stats-server
     image: stats-server-image
     container_name: stats-server-container
     ports:
@@ -12,14 +12,6 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://stats-db:5432/ewm-stats
       - SPRING_DATASOURCE_USERNAME=stats
       - SPRING_DATASOURCE_PASSWORD=stats
-    command: java -jar /stats-server.jar
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9090/actuator/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-      
   stats-db:
     image: postgres:14-alpine
     container_name: postgres-stats-db-container
