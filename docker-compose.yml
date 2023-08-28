@@ -1,14 +1,30 @@
 version: '3.1'
 services:
+  stats-client:
+    build: stats/stats-client
+    image: stats-client-image
+    container_name: stats-client-container
+    ports:
+      - "9090:9090"
+    depends_on:
+      - stats-server
+
+    environment:
+      - stats-client-port=9090
+      - stats-server.url=http://stats-server:9093
+      # - SPRING_DATASOURCE_URL=jdbc:postgresql://stats-db:5432/ewm-stats
+      # - SPRING_DATASOURCE_USERNAME=stats
+      # - SPRING_DATASOURCE_PASSWORD=stats
+
   stats-server:
     build: stats/stats-server
     image: stats-server-image
     container_name: stats-server-container
-    ports:
-      - "9090:9090"
     depends_on:
       - stats-db
     environment:
+      - stats-server-port=9093
+      - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - SPRING_DATASOURCE_URL=jdbc:postgresql://stats-db:5432/ewm-stats
       - SPRING_DATASOURCE_USERNAME=stats
       - SPRING_DATASOURCE_PASSWORD=stats
@@ -18,9 +34,9 @@ services:
     ports:
       - "6541:5432"
     environment:
-      - POSTGRES_DB=ewm-stats
-      - POSTGRES_USER=stats
-      - POSTGRES_PASSWORD=stats
+        - POSTGRES_DB=ewm-stats
+        - POSTGRES_USER=stats
+        - POSTGRES_PASSWORD=stats
   ewm-service:
     image: amazoncorretto:11-alpine-jdk
     container_name: ewm-service
@@ -50,5 +66,5 @@ services:
         # - "6542:5432"
         #environment:
         # - POSTGRES_DB=ewm-main
-        #- POSTGRES_USER=main
+      #- POSTGRES_USER=main
       #- POSTGRES_PASSWORD=main
