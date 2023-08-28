@@ -21,6 +21,12 @@ services:
       - POSTGRES_USER=stats
       - POSTGRES_PASSWORD=stats
 
+  ewm-service:
+        image: amazoncorretto:11-alpine-jdk
+        container_name: ewm-service
+        ports:
+          - "8080:8080"
+
 #  ewm-service:
 #    ports:
 #      - "8080:8080"
