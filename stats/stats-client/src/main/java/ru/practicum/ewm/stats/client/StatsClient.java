@@ -1,4 +1,4 @@
-package ru.practicum;
+package ru.practicum.ewm.stats.client;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -8,6 +8,8 @@ import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import org.apache.http.client.HttpClient;
+import ru.practicum.ewm.stats.server.EndpointHitDto;
+
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
