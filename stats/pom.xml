@@ -8,11 +8,9 @@
         <artifactId>explore-with-me</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
     <artifactId>stats</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-
     <modules>
         <module>stats-server</module>
         <module>stats-dto</module>
