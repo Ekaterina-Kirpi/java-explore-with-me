@@ -30,5 +30,5 @@ public class EndpointHitDto {
     @NotNull
     @Past
     @JsonFormat(pattern = DATE_TIME_PATTERN)
-    private LocalDateTime hitTimestamp;
+    private LocalDateTime timestamp;
 }

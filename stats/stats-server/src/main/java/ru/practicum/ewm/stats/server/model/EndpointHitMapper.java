@@ -11,7 +11,7 @@ public class EndpointHitMapper {
                 hit.getApp(),
                 hit.getUri(),
                 hit.getIp(),
-                hit.getHitTimestamp()
+                hit.getTimestamp()
         );
     }
 }
