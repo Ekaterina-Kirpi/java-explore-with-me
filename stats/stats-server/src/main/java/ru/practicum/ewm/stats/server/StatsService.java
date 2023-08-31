@@ -31,19 +31,6 @@ public class StatsService {
                 uris != null ? statsRepository.findHitsWithUniqueIpWithUris(uris, start, end) : statsRepository.findHitsWithUniqueIpWithoutUris(start, end) :
                 uris != null ? statsRepository.findAllHitsWithUris(uris, start, end) : statsRepository.findAllHitsWithoutUris(start, end);
     }
-        /* if (unique) {
-            if (uris != null) {
-                return statsRepository.findHitsWithUniqueIpWithUris(uris, start, end);
-            }
-            return statsRepository.findHitsWithUniqueIpWithoutUris(start, end);
-        }
-        if (uris != null) {
-            return statsRepository.findAllHitsWithUris(uris, start, end);
-        }
-        return statsRepository.findAllHitsWithoutUris(start, end);
-
-         */
-
 }
 
 
