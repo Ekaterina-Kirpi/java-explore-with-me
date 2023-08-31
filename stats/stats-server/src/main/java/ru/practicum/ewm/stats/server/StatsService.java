@@ -27,10 +27,7 @@ public class StatsService {
         if (start.isAfter(end)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Wrong timestamp.");
         }
-        return unique ?
-                uris != null ? statsRepository.findHitsWithUniqueIpWithUris(uris, start, end) : statsRepository.findHitsWithUniqueIpWithoutUris(start, end) :
-                uris != null ? statsRepository.findAllHitsWithUris(uris, start, end) : statsRepository.findAllHitsWithoutUris(start, end);
+        return unique ? (uris != null ? statsRepository.findHitsWithUniqueIpWithUris(uris, start, end) : statsRepository.findHitsWithUniqueIpWithoutUris(start, end))
+                : (uris != null ? statsRepository.findAllHitsWithUris(uris, start, end) : statsRepository.findAllHitsWithoutUris(start, end));
     }
 }
-
-
