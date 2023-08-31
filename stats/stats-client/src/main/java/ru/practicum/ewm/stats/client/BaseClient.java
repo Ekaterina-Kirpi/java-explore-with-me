@@ -1,4 +1,4 @@
-/*package ru.practicum.ewm.stats.client;
+package ru.practicum.ewm.stats.client;
 import org.springframework.http.*;
 import org.springframework.lang.Nullable;
 import org.springframework.web.client.HttpStatusCodeException;
@@ -66,4 +66,3 @@ public class BaseClient {
     }
 }
 
- */

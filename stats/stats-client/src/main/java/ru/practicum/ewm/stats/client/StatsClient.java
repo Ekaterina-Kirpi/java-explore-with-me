@@ -1,10 +1,7 @@
 package ru.practicum.ewm.stats.client;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 import ru.practicum.ewm.stats.dto.EndpointHitDto;
@@ -14,22 +11,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class StatsClient {
+public class StatsClient extends BaseClient {
     @Value("${client.url}")
     private String serverUrl;
-    private final RestTemplate rest;
 
-    public StatsClient() {
-        this.rest = new RestTemplate();
-        HttpClient httpClient = HttpClientBuilder.create().build();
-        HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
-        rest.setRequestFactory(requestFactory);
-    }
-   /* public StatsClient(RestTemplate rest) {
+    public StatsClient(RestTemplate rest) {
         super(rest);
     }
-
-    */
 
     public ResponseEntity<Object> saveHit(EndpointHitDto hit) {
         try {
