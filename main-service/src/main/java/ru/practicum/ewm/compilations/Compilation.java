@@ -1,6 +1,9 @@
 package ru.practicum.ewm.compilations;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import ru.practicum.ewm.events.model.Event;
 
 import javax.persistence.*;
