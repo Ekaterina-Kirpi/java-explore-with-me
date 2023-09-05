@@ -1,14 +1,13 @@
 package ru.practicum.ewm.stats.server;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.server.ResponseStatusException;
 import ru.practicum.ewm.stats.dto.EndpointHitDto;
 import ru.practicum.ewm.stats.dto.ViewStats;
 import ru.practicum.ewm.stats.server.model.EndpointHit;
 
+import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class StatsService {
     @Transactional(readOnly = true)
     public List<ViewStats> getStats(LocalDateTime start, LocalDateTime end, List<String> uris, Boolean unique) {
         if (start.isAfter(end)) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Wrong timestamp.");
+            throw new DateTimeException("Wrong timestamp.");
         }
         if (unique) {
             if (uris != null) {
