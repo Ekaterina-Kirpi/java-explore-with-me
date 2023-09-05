@@ -39,11 +39,20 @@ public class CategoryService {
     }
 
     public void deleteCategory(Long categoryId) {
+        Category category = categoryRepository.findById(categoryId)
+                .orElseThrow(() -> new NotFoundException("Category with id=" + categoryId + " was not found"));
+
+        categoryRepository.deleteById(categoryId);
+    }
+        
+    /*public void deleteCategory(Long categoryId) {
         if (!categoryRepository.existsById(categoryId)) {
             throw new NotFoundException("Category with id=" + categoryId + " was not found");
         }
         categoryRepository.deleteById(categoryId);
     }
+
+     */
 
     private Category getCategory(Long categoryId) {
         return categoryRepository.findById(categoryId).orElseThrow(() ->
