@@ -7,9 +7,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Getter
-@Setter
-@ToString
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "compilations")

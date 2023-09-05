@@ -5,9 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
-@ToString
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "categories")
