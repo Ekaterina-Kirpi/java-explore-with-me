@@ -16,7 +16,6 @@ import static ru.practicum.ewm.stats.dto.Constant.DATE_TIME_PATTERN;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EndpointHitDto {
-    private Long id;
 
     @NotBlank
     private String app;

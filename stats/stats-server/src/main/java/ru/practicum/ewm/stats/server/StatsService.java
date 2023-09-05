@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 import ru.practicum.ewm.stats.dto.EndpointHitDto;
 import ru.practicum.ewm.stats.dto.ViewStats;
-import ru.practicum.ewm.stats.server.model.EndpointHitMapper;
+import ru.practicum.ewm.stats.server.model.EndpointHit;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,8 +18,9 @@ import java.util.List;
 public class StatsService {
     private final StatsRepository statsRepository;
 
-    public void saveHit(EndpointHitDto hit) {
-        statsRepository.save(EndpointHitMapper.toHit(hit));
+    public EndpointHitDto saveHit(EndpointHitDto hit) {
+        EndpointHit endpointHit = statsRepository.save(EndpointHitMapper.toEndpointHit(hit));
+        return EndpointHitMapper.toEndpointHitDto(endpointHit);
     }
 
     @Transactional(readOnly = true)
@@ -40,4 +41,3 @@ public class StatsService {
         }
     }
 }
-
