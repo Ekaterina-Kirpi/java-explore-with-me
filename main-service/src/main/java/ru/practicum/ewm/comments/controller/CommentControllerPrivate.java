@@ -38,8 +38,8 @@ public class CommentControllerPrivate {
 
     @GetMapping
     List<CommentDto> getCommentsByAuthor(@PathVariable Long userId,
-                                         @RequestParam(value = "from", defaultValue = "0") @PositiveOrZero Integer from,
-                                         @RequestParam(value = "size", defaultValue = "10") @Positive Integer size) {
+                                         @RequestParam(defaultValue = "0") @PositiveOrZero Integer from,
+                                         @RequestParam(defaultValue = "10") @Positive Integer size) {
         return commentService.getCommentsByAuthor(userId, from, size);
     }
 

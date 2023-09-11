@@ -19,8 +19,8 @@ public class CommentControllerPublic {
 
     @GetMapping("/event/{eventId}")
     List<CommentDto> getComments(@PathVariable Long eventId,
-                                 @RequestParam(value = "from", defaultValue = "0") @PositiveOrZero Integer from,
-                                 @RequestParam(value = "size", defaultValue = "10") @Positive Integer size) {
+                                 @RequestParam(defaultValue = "0") @PositiveOrZero Integer from,
+                                 @RequestParam(defaultValue = "10") @Positive Integer size) {
         return commentService.getComments(eventId, from, size);
     }
 
