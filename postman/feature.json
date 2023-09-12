@@ -252,7 +252,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/users/1/comments/2/2",
+					"raw": "http://localhost:8080/users/1/comments/2/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -263,7 +263,7 @@
 						"1",
 						"comments",
 						"2",
-						"2"
+						"1"
 					]
 				}
 			},
