@@ -43,15 +43,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/users/1/comments/1?eventId=2",
+					"raw": "http://localhost:8080/comments/1?eventId=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"users",
-						"1",
 						"comments",
 						"1"
 					]
